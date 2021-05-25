@@ -1,9 +1,11 @@
+const Electrodomestico = require("./Electrodomestico");
+
 const CIENTO_VEINTE_LITROS = 120;
 const PORCENTAJE_CINCO_PORCIENTO = 0.05;
 const CIENTO_VEINTE_LITROS = 120;
 const LITROS_ADICIONALES = 10;
 
-class Nevera{
+class Nevera extends Electrodomestico{
     constructor(capacidad){
         this.capacidad = capacidad;
     }

@@ -1,6 +1,7 @@
+const Electrodomestico = requiere('./Electrodomestico')
 const CUARENTA_PULGADAS = 40;
 
-class Televisor{
+class Televisor extends Electrodomestico{
 
     constructor(dimension, TDT){
         this.dimension = dimension;
