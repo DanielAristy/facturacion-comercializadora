@@ -15,4 +15,4 @@ class UIMenu {
 
 }
 
-module.exports = UIMenu.showMenu
+module.exports = UIMenu
