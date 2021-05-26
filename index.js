@@ -1,5 +1,4 @@
-const Electrodomestico = require('./model/Electrodomestico');
+const UIMenu = require('./UI/UIMenu');
 
-
-electrodomestico = new Electrodomestico("Computador", "A", "N")
-console.log(electrodomestico)
+uiMenu = new UIMenu();
+uiMenu.showMenu();

@@ -19,17 +19,17 @@ class Electrodomestico {
     calcularPrecioDeConsumo(){
         switch(this.consumo){
             case "A":
-                aumentarPrecioAdicional(CONSUMO_TIPO_A);
+                this.aumentarPrecioAdicional(CONSUMO_TIPO_A);
                 break;
             case "B":
-                aumentarPrecioAdicional(CONSUMO_TIPO_B);
+                this.aumentarPrecioAdicional(CONSUMO_TIPO_B);
                 break;
             case "C":
-                aumentarPrecioAdicional(CONSUMO_TIPO_C);
+                this.aumentarPrecioAdicional(CONSUMO_TIPO_C);
                 break;
-            default:
-                imprimirMensaje(NO_EXISTE_ESTE_CONSUMO);
-                break;
+            // default:
+            //     imprimirMensaje(NO_EXISTE_ESTE_CONSUMO);
+            //     break;
         }
     } 
 
@@ -37,29 +37,34 @@ class Electrodomestico {
         switch (this.procedencia){
             case "N":
                 console.log(PRODUCTO_NACIONAL)
-                aumentarPrecioAdicional(PROCEDENCIA_TIPO_N);
+                this.aumentarPrecioAdicional(PROCEDENCIA_TIPO_N);
 
                 break;
             case "I":
                 console.log(PRODUCTO_IMPORTADO)
-                aumentarPrecioAdicional(PROCEDENCIA_TIPO_I);
+                this.aumentarPrecioAdicional(PROCEDENCIA_TIPO_I);
 
                 break;
             default:
                 console.log(NO_EXISTE_PROCEDENCIA)
-                aumentarPrecioAdicional(0);
+                this.aumentarPrecioAdicional(0);
                 break;
         }
     }
 
     calcularPrecio(){
-        calcularPrecioDeConsumo();
-        calcularPrecioDeProcedencia();
+        this.calcularPrecioDeConsumo();
+        this.calcularPrecioDeProcedencia();
     }
 
     aumentarPrecioAdicional(adicional){
         this.precio += adicional;
     }
+
+    obtenerPrecio(){
+        return this.precio;
+    }
+
 }
 
 module.exports = Electrodomestico;

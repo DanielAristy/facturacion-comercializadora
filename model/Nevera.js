@@ -1,37 +1,41 @@
 const Electrodomestico = require("./Electrodomestico");
-
 const CIENTO_VEINTE_LITROS = 120;
 const PORCENTAJE_CINCO_PORCIENTO = 0.05;
-const CIENTO_VEINTE_LITROS = 120;
 const LITROS_ADICIONALES = 10;
 
 class Nevera extends Electrodomestico{
-    constructor(capacidad){
+
+    constructor(nombre, consumo, procedencia, capacidad){
+        super(nombre, consumo, procedencia);
         this.capacidad = capacidad;
     }
 
     calcularPrecioPorLitros(){
         if (this.capacidad >= CIENTO_VEINTE_LITROS){
-            aumentarPrecioAdicional(getCantidad());
+            super.aumentarPrecioAdicional(this.getCantidad());
         }else {
-            aumentarPrecioAdicional(0);
+            super.aumentarPrecioAdicional(0);
         }
+    }
+    calcularPrecio(){
+        super.calcularPrecio()
+        this.calcularPrecioPorLitros();
     }
 
     getCantidad() {
-        return getPorcentajePorCadaLitro() * getPrecio();
+        return this.getPorcentajePorCadaLitro() * super.obtenerPrecio();
     }
 
     getPorcentajePorCadaLitro() {
-        return getCantidadDeLitros() * PORCENTAJE_CINCO_PORCIENTO;
+        return this.getCantidadDeLitros() * PORCENTAJE_CINCO_PORCIENTO;
     }
 
     getCantidadDeLitros() {
-        return Math.floor(getLitrosDeMas() / LITROS_ADICIONALES);
+        return Math.floor(this.getLitrosDeMas() / LITROS_ADICIONALES);
     }
 
     getLitrosDeMas() {
-        return capacidad - CIENTO_VEINTE_LITROS;
+        return this.capacidad - CIENTO_VEINTE_LITROS;
     }
 }
 
